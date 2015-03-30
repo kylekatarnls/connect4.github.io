@@ -1,0 +1,75 @@
+@base: #f938ab;
+
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  box-sizing: border-box;
+}
+
+body {
+  color: #454545;
+}
+
+.border-radius(@style) {
+  -webkit-border-radius: @style;
+  border-radius: @style;
+}
+
+form input {
+  border: 1px solid silver;
+  .border-radius(3px);
+  padding: 2px 6px;
+  height: 24px;
+  vertical-align: middle;
+  &[type="submit"] {
+    background: #ececec;
+  }
+}
+
+form, h5 {
+  margin: 10px 0;
+}
+
+.remove {
+  color: red;
+}
+
+#menu {
+  margin: 0 10px;
+}
+
+#layer {
+  padding: 10px;
+  text-align: center;
+}
+
+#history {
+  max-height: 300px;
+  overflow: auto;
+  background: #f8f8f8;
+}
+
+#players {
+  .player {
+    padding: 1px 3px;
+  }
+  .token {
+    position: relative;
+    top: 3px;
+    left: -3px;
+    display: inline-block;
+    .border-radius(100%);
+    border: 1px solid #cfcfcf;
+    width: 18px;
+    height: 18px;
+  }
+}
+
+#grid {
+  display: inline-block;
+  canvas {
+    background: #f0f0f0;
+    margin: 1px;
+  }
+}
