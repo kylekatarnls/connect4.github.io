@@ -4,7 +4,7 @@ window.addEventListener('load', function () {
 
   var $ = document.getElementById.bind(document);
 
-  var locked = false;
+  var waiting = false;
 
   var requestAnimFrame = window.requestAnimationFrame ||
     window.webkitRequestAnimationFrame ||
@@ -221,20 +221,20 @@ window.addEventListener('load', function () {
         break;
       }
     } else {
-      locked = false;
-      currentPlayer++;
-      if(currentPlayer >= players.length) {
-        currentPlayer = 0;
+      waiting = false;
+      playerIndex++;
+      if(playerIndex >= players.length) {
+        playerIndex = 0;
       }
     }
   }
 
-  var currentPlayer;
+  var playerIndex;
 
   window.start = function (min, max) {
-    locked = false;
+    waiting = false;
     tokens = [];
-    currentPlayer = 0;
+    playerIndex = 0;
     var width = parseInt(min);
     var height = parseInt(max);
     var gridHeight = 80 * height;
@@ -270,16 +270,16 @@ window.addEventListener('load', function () {
 
   document.body.addEventListener('click', function (e) {
     var target = e.target || e.srcElement;
-    if(target.tagName.toLowerCase() === 'canvas' && ! locked) {
+    if(target.tagName.toLowerCase() === 'canvas' && ! waiting) {
       if(players.length > 1) {
-        var fillStyle = players[currentPlayer].color;
+        var fillStyle = players[playerIndex].color;
         var canvas = $('grid').getElementsByTagName('canvas');
         var column = Array.prototype.indexOf.call(canvas, target);
         var rowCount = target.height / 80;
         tokens[column] = tokens[column] || [];
         var tokenInThisColumn = tokens[column].length;
         if(tokenInThisColumn < rowCount) {
-          locked = true;
+          waiting = true;
           var newTokens = tokens[column].slice();
           newTokens.push(fillStyle);
           var finalRow = rowCount - tokenInThisColumn;
