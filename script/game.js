@@ -214,7 +214,7 @@ window.addEventListener('load', function () {
         var color = winner[direction];
         for(var i = players.length - 1; i >= 0; i--) {
           if(players[i].color === color) {
-            alert(players[i].name + ' win with 4 ' + direction + ' tokens!');
+            alert(players[i].name + ' wins with 4 ' + direction + ' tokens!');
             return;
           }
         }
@@ -233,6 +233,7 @@ window.addEventListener('load', function () {
 
   window.start = function (min, max) {
     locked = false;
+    tokens = [];
     currentPlayer = 0;
     var width = parseInt(min);
     var height = parseInt(max);
