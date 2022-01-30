@@ -1,27 +1,27 @@
 <!doctype html>
 <html>
-	<head>
-		<title>Connect4</title>
-		<link rel="stylesheet/less" type="text/css" href="style/style.less">
-		<script src="script/less.min.js"></script>
-		<script src="script/game.js"></script>
-	</head>
-	<body>
-		<div id="menu">
-			<div id="players"></div>
-			<form onsubmit="addPlayer(this.name.value, this.color.value); return false;">
-				<input name="name" type="text" placeholder="Player name" required><input name="color" type="color" value="#FF0000">
-				<input type="submit" value="Add">
-			</form>
-			<form onsubmit="start(this.min.value, this.max.value); return false;">
-				Width: <input name="min" type="number" value="7"><br>
-				Height: <input name="max" type="number" value="6"><br>
-				<input type="submit" value="Start">
-			</form>
-		</div>
-		<div id="layer">
-			<div id="grid"></div>
-			<div id="next-player"></div>
-		</div>
-	</body>
+<head>
+    <title>Connect4</title>
+    <link rel="stylesheet/less" type="text/css" href="style/style.less">
+    <script src="script/less.min.js"></script>
+    <script src="script/game.js"></script>
+</head>
+<body>
+    <div id="menu">
+        <div id="players"></div>
+        <form onsubmit="addPlayer(this.name.value, this.color.value); return false;">
+            <input name="name" type="text" placeholder="Player name" required><input name="color" type="color" value="#FF0000">
+            <input type="submit" value="Add">
+        </form>
+        <form onsubmit="start(this.min.value, this.max.value); return false;">
+            Width: <input name="min" type="number" value="7"><br>
+            Height: <input name="max" type="number" value="6"><br>
+            <input type="submit" value="Start">
+        </form>
+    </div>
+    <div id="layer">
+        <div id="grid"></div>
+        <div id="next-player"></div>
+    </div>
+</body>
 </html>
